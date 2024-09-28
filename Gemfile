@@ -3,7 +3,7 @@ source "https://rubygems.org"
 
 gem 'dartsass-sprockets'
 gem "bootstrap", "~> 5.3.3"
-
+gem 'devise', '~> 4.9', '>= 4.9.4'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.2.1"

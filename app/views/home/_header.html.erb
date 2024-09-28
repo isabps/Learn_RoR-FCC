@@ -7,19 +7,34 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      
-      <li class="nav-item">
-        <%= link_to 'New Contact', new_contact_path, class:"nav-link" %>
-      </li>
 
-      <li class="nav-item">
-        <%= link_to 'Contacts', contacts_path, class:"nav-link" %>
-      </li>
+      <% if model_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Contacts', contacts_path, class:"nav-link" %>
+        </li>
 
-      <li class="nav-item">
-        <%= link_to 'About Us', home_about_path, class:"nav-link" %>
-      </li>
+        <li class="nav-item">
+          <%= link_to 'Edit Profile', edit_model_registration_path, class:"nav-link" %>
+        </li>
 
-    </ul>
+        <li class="nav-item">
+          <%= link_to 'Sign OUT', destroy_model_session_path, method: :delete, class:"nav-link" %>
+        </li>
+
+      <% else %>
+
+        <li class="nav-item">
+          <%= link_to 'Sign IN', new_model_session_path, class:"nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to 'Sign UP', new_model_registration_path, class:"nav-link" %>
+        </li>
+
+        <li class="nav-item">
+          <%= link_to 'About Us', home_about_path, class:"nav-link" %>
+        </li>
+      <% end %>
+
   </div>
 </nav>
