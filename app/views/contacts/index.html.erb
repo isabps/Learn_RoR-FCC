@@ -2,15 +2,15 @@
 
 <% content_for :title, "Contacts" %>
 
-<h1>Contacts</h1>
 
-<div id="contacts">
+<table class="table table-striped table-bordered table-hover">
+  <thead class="table-dark">
   <% @contacts.each do |contact| %>
     <%= render contact %>
     <p>
-      <%= link_to "Show this contact", contact %>
+      <%= link_to "Show this contact", contact, class:"btn btn-info" %>
     </p>
   <% end %>
-</div>
+</table>
 
-<%= link_to "New contact", new_contact_path %>
+<%= link_to "New contact", new_contact_path, class:"btn btn-secondary" %>
