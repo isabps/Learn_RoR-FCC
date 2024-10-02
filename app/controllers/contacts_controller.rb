@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[ show edit update destroy ]
-  before_action :authenticate_model!, except: [ :index, :show ]
+  before_action :authenticate_model!, except: [ :index ]
+  before_action :correct_user, only: [ :edit, :update, :destroy  ]
 
   # GET /contacts or /contacts.json
   def index
@@ -13,7 +14,8 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @contact = Contact.new
+    # @contact = Contact.new
+    @contact = current_model.contacts.build
   end
 
   # GET /contacts/1/edit
@@ -22,7 +24,8 @@ class ContactsController < ApplicationController
 
   # POST /contacts or /contacts.json
   def create
-    @contact = Contact.new(contact_params)
+    # @contact = Contact.new(contact_params)
+    @contact = current_model.contacts.build(contact_params)
 
     respond_to do |format|
       if @contact.save
@@ -56,6 +59,12 @@ class ContactsController < ApplicationController
       format.html { redirect_to contacts_path, status: :see_other, notice: "Contact was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # function to define actions, "FCC: 'learn RoR - Full course'" at 2:58:00
+  def correct_user
+    @contact = current_model.contacts.find_by(id: params[:id])
+    redirect_to contacts_path, notice: "Action Not Authorized" if @contact.nil?
   end
 
   private

@@ -5,11 +5,13 @@
 
 <table class="table table-striped table-bordered table-hover">
   <thead class="table-dark">
-  <% @contacts.each do |contact| %>
+    <% @contacts.each do |contact| %>
+    <% if contact.model == current_model %>
     <%= render contact %>
     <p>
       <%= link_to "Show this contact", contact, class:"btn btn-info" %>
     </p>
+    <% end  %>
   <% end %>
 </table>
 
