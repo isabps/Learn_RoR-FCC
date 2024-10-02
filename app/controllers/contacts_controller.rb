@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[ show edit update destroy ]
+  before_action :authenticate_model!, except: [ :index, :show ]
 
   # GET /contacts or /contacts.json
   def index
@@ -65,6 +66,6 @@ class ContactsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email, :phone, :instagram)
+      params.require(:contact).permit(:first_name, :last_name, :email, :phone, :instagram, :model_id)
     end
 end

@@ -37,6 +37,12 @@
   </div>
 
   <div>
+    <%= form.number_field :model_id, id: :contact_model_id, class:"form-control", value: current_model.id, type: :hidden %>
+  </div>
+
+  <br>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>

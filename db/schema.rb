@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_09_28_193218) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_02_055634) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,8 @@ ActiveRecord::Schema[7.2].define(version: 2024_09_28_193218) do
     t.string "instagram"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "model_id"
+    t.index ["model_id"], name: "index_contacts_on_model_id"
   end
 
   create_table "models", force: :cascade do |t|
