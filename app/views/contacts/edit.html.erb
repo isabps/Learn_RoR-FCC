@@ -6,7 +6,8 @@
 
 <br>
 
-<div>
-  <%= link_to "Show this contact", @contact %> |
-  <%= link_to "Back to contacts", contacts_path %>
+<table class="table table-hover table-bordered table-sm">
+  <%# link_to "Show this contact", @contact, class:"btn btn-secondary btn-sm" %> 
+  <%= button_to "Destroy this contact", @contact, method: :delete, class:"btn btn-danger btn-sm" %> |
+  <%= link_to "Back to contacts", contacts_path, class:"btn btn-dark btn-sm" %>
 </div>

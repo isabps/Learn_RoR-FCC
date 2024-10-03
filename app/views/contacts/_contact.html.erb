@@ -1,32 +1,30 @@
 <div id="<%= dom_id contact %>">
-  <p>
-    <strong>First name:</strong>
-    <%= contact.first_name %>
-  </p>
+  <tr>
+    
+    <td>
+      <strong>Name:</strong>
+      <%= link_to contact.first_name + ' ' + contact.last_name, contact %>
+    </td>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= contact.last_name %>
-  </p>
+    <td>
+      <strong>Email:</strong>
+      <%= contact.email %>
+    </td>
 
-  <p>
-    <strong>Email:</strong>
-    <%= contact.email %>
-  </p>
+    <td>
+      <strong>Phone:</strong>
+      <%= contact.phone %>
+    </td>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= contact.phone %>
-  </p>
+    <td>
+      <strong>Instagram:</strong>
+      <%= contact.instagram %>
+    </td>
 
-  <p>
-    <strong>Instagram:</strong>
-    <%= contact.instagram %>
-  </p>
-
-  <p>
-    <strong>User(model):</strong>
-    <%= contact.model_id %>
-  </p>
-
+    <%#    <td>
+      <strong>User(model):</strong>
+      <%= contact.model_id %>
+    </td>
+ 
+  </tr>
 </div>

@@ -3,16 +3,19 @@
 <% content_for :title, "Contacts" %>
 
 
-<table class="table table-striped table-bordered table-hover">
+<table class="table table-striped table-bordered table-hover table-reponsive">
   <thead class="table-dark">
     <% @contacts.each do |contact| %>
-    <% if contact.model == current_model %>
-    <%= render contact %>
-    <p>
-      <%= link_to "Show this contact", contact, class:"btn btn-info" %>
-    </p>
-    <% end  %>
+    <% if contact.model == current_model %>  
+      <tbody>
+        <tr>
+          <td>
+            <%= link_to contact.first_name + ' ' + contact.last_name, contact %>
+          </td>
+        </tr>
+      </tbody>
+    <% end %>
   <% end %>
 </table>
 
-<%= link_to "New contact", new_contact_path, class:"btn btn-secondary" %>
+<%= link_to "New contact", new_contact_path, class:"btn btn-primary" %>
